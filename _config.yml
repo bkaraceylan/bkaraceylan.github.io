@@ -32,9 +32,18 @@ github_username:  jekyll
 # Build settings
 # theme: minima
 remote_theme: b2a3e8/jekyll-theme-console
-
+header_pages:
+  - index.markdown
+  - about.markdown
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+
+# defaults:
+#   - scope:
+#     path: "assets/enc"
+#     values:
+#       encrypted: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
