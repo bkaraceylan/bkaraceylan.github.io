@@ -170,7 +170,7 @@ root@kali:~/Tuts/blogposts/smashbin/aslr_leak# python exploit.py
 [*] Stopped process './garbage' (pid 7681)
 ```
 <br>
-The rest is easy. We will calculate the libc base address and using it we can calculate the address of any function in libc. Which addresses do we need? To spawn a shell we need the address of the system function and the address of the "/bin/sh" string. Original binary on the hackthebox machine has setuid bit so we are going to go for the extra juice here and call setuid to elevate our priviledges. Summing up:
+The rest is easy. We will calculate the libc base address and using it we can calculate the address of any function in libc. Which addresses do we need? To spawn a shell we need the address of the system function and the address of the "/bin/sh" string. Original binary on the hackthebox machine has setuid bit so we are going to go for the extra juice here and call setuid to elevate our privieges. Summing up:
 <br>
 1. Offset of system in libc
 2. Offset of setuid in libc
@@ -249,7 +249,7 @@ p.sendline(payload)
 p.interactive()
 ```
 <br>
-Let's give full access to this folder and enable setuid for the binary and then switch to an unpriviledged user and test our exploit.
+Let's give full access to this folder and enable setuid for the binary and then switch to an unprivileged user and test our exploit.
 <br>
 ```terminal
 root@kali:~/Tuts/blogposts/smashbin/aslr_leak# chmod 755 * 
