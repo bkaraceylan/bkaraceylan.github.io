@@ -4,7 +4,7 @@ title: "Defeating ASLR Part II"
 date: 2020-05-02 04:04:00 +0300
 categories: hack binary-exploitation
 ---
-[First part](/hack/binary-exploitation/2020/05/02/defeating-aslr-part-1.html) of this series contains the necessary information.
+[First part](/hack/binary-exploitation/2020/05/01/defeating-aslr-part-1.html) of this series contains the necessary information.
 <br>
 I am using [gef](https://github.com/hugsy/gef) plugin for gdb and pwntools python module
 
