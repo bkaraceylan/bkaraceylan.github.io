@@ -233,7 +233,7 @@ libc_setuid = 0xcbbe0
 
 # Calculate the the base address of libc
 libc_main = leaked_printf - libc_printf
-log.success("libc_main:" + hex(offset))
+log.success("libc_main:" + hex(libc_main))
 
 # Add the offsets to the base address to  obtain the addresses libc functions
 
